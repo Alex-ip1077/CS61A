@@ -351,7 +351,7 @@ def fastest_words(words_and_times: dict) -> list[list[str]]:
     pl_idxs = range(len(times))  # contains an *index* for each player
     w_idxs = range(len(words))    # contains an *index* for each word
     # BEGIN PROBLEM 10
-    return [[words[i] for i in range(len(words)) if pl_id == min(pl_id, key=lambda)] for pl_id in pl_idxs]
+    return [[words[i] for i in range(len(words)) if pl_id == min(pl_idxs, key=lambda pl_id: get_time(times, pl_id, i))] for pl_id in pl_idxs]
     # END PROBLEM 10
 
 
